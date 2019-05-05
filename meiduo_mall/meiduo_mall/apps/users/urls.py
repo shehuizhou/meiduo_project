@@ -20,6 +20,16 @@ urlpatterns = [
     #激活邮箱
     url(r'^emails/verification/$',views.VerifyEmailView.as_view()),
     #用户地址
-    url(r'^addresses/$',views.AddressView.as_view())
+    url(r'^addresses/$',views.AddressView.as_view()),
+    #用户新增地址
+    url(r'^addresses/create/$',views.CreateAddressView.as_view()),
+    #用户修改地址
+    url(r'^addresses/(?P<address_id>\d+)/$',views.UpdateDestroyAddressView.as_view()),
+    #用户默认地址
+    url(r'^addresses/(?P<address_id>\d+)/default/$',views.DefaultAddressView.as_view()),
+    #用户地址标题
+    url(r'^addresses/(?P<address_id>\d+)/title/$',views.UpdateTitleAddressView.as_view()),
+    #用户修改密码
+    url(r'^password/$',views.ChangePasswordView.as_view()),
 
 ]
