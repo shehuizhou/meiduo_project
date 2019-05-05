@@ -215,3 +215,6 @@ EMAIL_HOST_USER = '18674447448@163.com' # 授权的邮箱
 EMAIL_HOST_PASSWORD = 'zzx123456' # 邮箱授权时获得的密码，非注册登录密码
 EMAIL_FROM = '美多商城<18674447448@163.com>' # 发件人抬头
 EMAIL_VERIFY_URL = 'http://www.meiduo.site:8000/emails/verification/'
+
+DEFAULT_FILE_STORAGE = 'meiduo_mall.utils.fastdfs.fdfs_storage.FastDFSStorage'
+FDFS_BASE_URL = 'http://192.168.19.140:8888/'  # FastDFS中sotrage(nginx) ip和端口
