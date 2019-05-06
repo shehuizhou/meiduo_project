@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^',include('oauth.urls',namespace='oauth')),#首页
     url(r'^',include('areas.urls',namespace='areas')),#首页
     url(r'^',include('goods.urls',namespace='goods')),#首页
+    url(r'^search/', include('haystack.urls')),
 ]

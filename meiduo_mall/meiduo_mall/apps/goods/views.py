@@ -4,7 +4,7 @@ from django import http
 from django.core.paginator import Paginator
 
 from contents.utils import get_categories
-from .models import GoodsCategory
+from .models import GoodsCategory,SKU
 from .utils import get_breadcrumb
 from meiduo_mall.utils.response_code import RETCODE
 
@@ -80,3 +80,23 @@ class HotGoodsView(View):
             })
 
         return http.JsonResponse({'code': RETCODE.OK, 'errmsg': 'OK', 'hot_skus': hot_skus})
+
+
+class DetailView(View):
+    def get(self,request,sku_id):
+
+        try:
+            sku = SKU.objects.get(id=sku_id)
+        except SKU.DoesNotExist:
+            return render(request,'404.html')
+        category = sku.category
+        spu = sku.spu
+        context = {
+            'categories':get_categories(),
+            'breadcrumb':get_breadcrumb(category),
+            'sku':sku,
+            'category':category,
+            'spu':spu,
+        }
+        return render(request,'detail.html',context)
+        pass
