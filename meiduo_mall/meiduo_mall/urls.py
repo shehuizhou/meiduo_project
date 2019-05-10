@@ -20,9 +20,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('users.urls',namespace='users')),#用户
     url(r'^',include('contents.urls',namespace='contents')),#首页
-    url(r'^',include('verification.urls',namespace='verification')),#首页
-    url(r'^',include('oauth.urls',namespace='oauth')),#首页
-    url(r'^',include('areas.urls',namespace='areas')),#首页
-    url(r'^',include('goods.urls',namespace='goods')),#首页
+    url(r'^',include('verification.urls',namespace='verification')),#
+    url(r'^',include('oauth.urls',namespace='oauth')),#
+    url(r'^',include('areas.urls',namespace='areas')),
+    url(r'^',include('goods.urls',namespace='goods')),#
+    url(r'^',include('carts.urls',namespace='carts')),#
     url(r'^search/', include('haystack.urls')),
 ]

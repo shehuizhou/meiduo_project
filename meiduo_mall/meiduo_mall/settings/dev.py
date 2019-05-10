@@ -148,13 +148,21 @@ CACHES = {
         }
     },
     "verify_code": { # 验证码
-            "BACKEND": "django_redis.cache.RedisCache",
-            "LOCATION": "redis://127.0.0.1:6379/2",
-            "OPTIONS": {
-                "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            }
-        },
-    }
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/2",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    "history": { # 验证码
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/3",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+
+}
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "session"
 
@@ -218,13 +226,13 @@ EMAIL_FROM = '美多商城<18674447448@163.com>' # 发件人抬头
 EMAIL_VERIFY_URL = 'http://www.meiduo.site:8000/emails/verification/'
 
 DEFAULT_FILE_STORAGE = 'meiduo_mall.utils.fastdfs.fdfs_storage.FastDFSStorage'
-FDFS_BASE_URL = 'http://192.168.19.140:8888/'  # FastDFS中sotrage(nginx) ip和端口
+FDFS_BASE_URL = 'http://192.168.19.141:8888/'  # FastDFS中sotrage(nginx) ip和端口
 
 # Haystack
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': 'http://192.168.19.140:9200/', # Elasticsearch服务器ip地址，端口号固定为9200
+        'URL': 'http://192.168.19.141:9200/', # Elasticsearch服务器ip地址，端口号固定为9200
         'INDEX_NAME': 'meiduo_mall', # Elasticsearch建立的索引库的名称
     },
 }
